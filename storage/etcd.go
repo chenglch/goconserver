@@ -301,7 +301,7 @@ func (self *EtcdStorage) delNodes(record interface{}) error {
 		keys[i] = EtcdKeyJoin(NODE_PREFIX, host, name)
 		i++
 	}
-	self.client.MultiDel(keys)
+	err = self.client.MultiDel(keys)
 	if err != nil {
 		return err
 	}
